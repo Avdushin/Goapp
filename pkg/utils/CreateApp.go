@@ -17,6 +17,9 @@ func CreateApp(name string) {
 	CreateAppFolder(name)
 	// Create File structure
 	CreateStructure(name)
+	// Create Internal folder
+	MakeInternal(name, "app")
+	MakeInternal(name, "pkg")
 	// Create General files
 	CreateTemplFie(fmt.Sprintf("%s/cmd/main.go", name), fmt.Sprintf("%s/cmd/%s.go", name, name))
 	fmt.Printf("\n\ncd %s%s%s\ngo mod init github.com/%s\n", consts.Cyan, name, consts.Reset, name)
@@ -45,6 +48,14 @@ func CreateStructure(name string) {
 func CreateTemplFie(file, name string) {
 	if e := os.Rename(file, name); e != nil {
 		log.Fatal(e)
+	}
+}
+
+// Create internal directory
+func MakeInternal(name, path string) {
+	err := os.MkdirAll(fmt.Sprintf("%s/internal/%s", name, path), 0750)
+	if err != nil && !os.IsExist(err) {
+		log.Fatal(err)
 	}
 }
 
