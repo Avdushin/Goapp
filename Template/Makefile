@@ -1,0 +1,19 @@
+# Variables
+appname = goapp
+
+# Actions
+Default:
+	go run cmd/$(appname).go
+start:
+	./bin/$(appname)
+build:
+	go build -o bin/$(appname) cmd/$(appname).go
+
+# --- Build an example ---
+# Make "examples" folder (Unix)
+example:
+	cp -rv `ls -A | grep -vE ".git|.env|.gitignore|.vscode|.idea|.Ds_Store|README.md|examples|test"` examples
+# Make "examples" folder (Windows)
+example-win:
+	robocopy "." "examples" /xf ".gitignore" ".env" "README.md" /xd ".git" ".Ds_Store" ".vscode" ".idea" "assets" "test" "examples" /s
+	echo -e "examples" folder was builded!
