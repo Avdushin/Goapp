@@ -2,7 +2,7 @@ package consts
 
 const (
 	// General
-	Version = "1.0"
+	Version = "1.1"
 	// colors
 	Reset   = "\033[0m"
 	Red     = "\033[31m"
