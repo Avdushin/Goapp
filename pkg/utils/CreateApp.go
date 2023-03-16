@@ -19,7 +19,7 @@ func CreateApp(name string) {
 	CreateStructure(name)
 	// Create General files
 	CreateTemplFie(fmt.Sprintf("%s/cmd/main.go", name), fmt.Sprintf("%s/cmd/%s.go", name, name))
-	fmt.Printf("\n\ncd %s%s%s\ngo mod init\n", consts.Cyan, name, consts.Reset)
+	fmt.Printf("\n\ncd %s%s%s\ngo mod init github.com/%s\n", consts.Cyan, name, consts.Reset, name)
 }
 
 func CreateAppFolder(path string) {
@@ -40,7 +40,6 @@ func CreateStructure(name string) {
 			log.Fatal("не работайт")
 		}
 	}
-
 }
 
 func CreateTemplFie(file, name string) {
