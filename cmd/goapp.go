@@ -34,6 +34,7 @@ func main() {
 		if len(values) <= 1 && name != "v" && name != "version" {
 			utils.Logo()
 			utils.CreateApp(name)
+			// utils.SetMakeFile(name)
 			fmt.Printf("\n%sThe %s app has been created!%s\n", consts.Cursive, name, consts.Reset)
 		} else if name == "v" || name == "version" || name == "--v" {
 			fmt.Printf("GOAPP version: %s%s%s\n\n", consts.Yellow, consts.Version, consts.Reset)

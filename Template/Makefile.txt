@@ -1,5 +1,5 @@
 # Variables
-appname = goapp
+appname = YOUR_APP_NAME
 
 # Actions
 Default:
